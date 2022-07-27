@@ -1,0 +1,24 @@
+name, age, salary
+nAm, 18 1, 
+AAAAaaaa _!@#1234рпаРПА()+GFU,120,10000000
+na,
+AAAAaaaa _!@#1234рпаРПА()+GFU,18,1
+Naa,18,1
+Aaa ,18,1
+,18,1
+<script>alert('name")</script>,18,1
+nAm,17,1
+nAm,121,1
+nAm,,1
+nAm, a! +,1
+nAm, true,1
+nAm,18.1,1
+nAm,-18,1
+nAm,0,1
+nAm,17,1
+nAm,18,0
+nAm,18,-1
+nAm,18,100000001
+nAm,18,true
+nAm,18,lel
+nAm,18,!$#fgd
