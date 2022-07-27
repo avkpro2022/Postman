@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "39ffabe0-7f24-4428-82b3-8f3103d81c64",
+		"name": "HW_Postman_3_1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21462284"
+	},
+	"item": [
+		{
+			"name": "user_info_2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const age = pm.iterationData.get('age');",
+							"const name = pm.iterationData.get('name');",
+							"const salary = pm.iterationData.get('salary');",
+							"",
+							"function ageValidation(value) {",
+							"    return value && isNaN(value) > 17 && value < 121 && Number.isInteger(+value) ",
+							"}",
+							"",
+							"function salaryValidation(value) {",
+							"    return value && !isNaN(value) > 0 && value < 1000001 && Number.isInteger(+value)",
+							"}",
+							"",
+							"function nameValidation(value) {",
+							"    return value && value.length > 2 && value.length < 41 && value.trim() === value",
+							"}",
+							"",
+							"function validate(name, age, salary) {",
+							"return ageValidation(age) && salaryValidation(salary) && nameValidation(name)",
+							"}",
+							"",
+							"if(validate(name, age, salary)) {",
+							"    pm.test(`200 code with age == ${age} and name == ${name}`, () => {",
+							"        pm.response.to.have.status(200);",
+							"    })",
+							"} else {",
+							"    pm.test(`NOT 200 code with age == ${age} and name == ${name}`, () => {",
+							"        pm.response.to.not.have.status(200);",
+							"    })",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "{{age}}",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "{{salary}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://162.55.220.72:5005/user_info_2",
+					"protocol": "http",
+					"host": [
+						"162",
+						"55",
+						"220",
+						"72"
+					],
+					"port": "5005",
+					"path": [
+						"user_info_2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
